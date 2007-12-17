@@ -12,7 +12,6 @@ License   	: GPL
 URL         	: http://www.w3.org/2003/entities/
 
 
-BuildRoot   	: %{_tmppath}/%{Name}-%{Version}
 
 BuildArch	: noarch
 Source0		: ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{Name}-%{Version}.tar.bz2
