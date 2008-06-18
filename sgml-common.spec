@@ -3,7 +3,7 @@
 
 Name:		%{Name}
 Version:	%{Version}
-Release:	%mkrel 13
+Release:	%mkrel 14
 Group       	: Publishing
 
 Summary     	: Base ISO character entities and utilities for SGML and XML
