@@ -19,9 +19,9 @@ Source0		: ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{Name}
 Source1		: http://oasis-open.org/committees/docbook/xmlcharent/0.3/xmlcharent-0.3.tar.bz2
 Source2		: xmlcharent-catalog.tar.bz2
 # http://www.w3.org/2003/entities/iso8879/
-Patch0: sgml-common-umask.patch.bz2
-Patch1: sgml-common-xmldir.patch.bz2
-Patch2: sgml-common-quotes.patch.bz2
+Patch0: sgml-common-umask.patch
+Patch1: sgml-common-xmldir.patch
+Patch2: sgml-common-quotes.patch
 
 Requires: coreutils grep
 Requires: libxml2-utils >= 2.4.8-2
