@@ -22,13 +22,12 @@ Source2		: xmlcharent-catalog.tar.bz2
 Patch0: sgml-common-0.6.3-umask.patch
 Patch1: sgml-common-xmldir.patch
 Patch2: sgml-common-quotes.patch
+Patch3: sgml-common-0.6.3-automake-fix.patch
 
 Requires: coreutils grep
 Requires: libxml2-utils >= 2.4.8-2
 BuildRequires: libxml2-utils >= 2.4.8-2
-%if %{mdkversion} >= 1010
-BuildRequires: automake1.4
-%else
+%if %{mdkversion} < 1010
 BuildRequires: automake = 1.4
 %endif
 
@@ -51,18 +50,9 @@ SGML catalogs manipulation.
 %patch0 -p1 -b .umask
 %patch1 -p1 -b .xmldir
 %patch2 -p1 -b .quotes
+%patch3 -p1 -b .automake
 
-# force build with automake 1.4
-for f in install-sh missing mkinstalldirs COPYING INSTALL; do
-  ln -sf %{_datadir}/automake-1.4/$f $f
-done
-aclocal-1.4
-%if %{mdkversion} >= 200600
-# XXX make the autoconf wrapper script think this is an autoconf2.5
-# script since Abel removed WANT_AUTOCONF_2_5 support there (no-op)
-ln -s configure.in configure.ac
-%endif
-autoconf
+autoreconf -fi
 
 %Build
 %configure
