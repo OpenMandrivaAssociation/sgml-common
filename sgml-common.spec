@@ -59,28 +59,28 @@ autoreconf -fi
 
 
 %Install
-rm -Rf $RPM_BUILD_ROOT
-DESTDIR=$RPM_BUILD_ROOT
+rm -Rf %{buildroot}
+DESTDIR=%{buildroot}
 %makeinstall
 # remove installed doc (added later in %files)
 rm -rf $DESTDIR/usr/doc
 
 # remove xml.dcl, it is now in openjade
-rm -f $RPM_BUILD_ROOT%{sgmlbase}/xml.dcl
+rm -f %{buildroot}%{sgmlbase}/xml.dcl
 
 # remove entities to install them later in /usr/share/sgml
 # instead of /usr/share/xml
 rm -rf $DESTDIR/usr/share/xml
-mkdir $RPM_BUILD_ROOT/etc/xml
-mkdir $RPM_BUILD_ROOT%{sgmlbase}/docbook
+mkdir %{buildroot}/etc/xml
+mkdir %{buildroot}%{sgmlbase}/docbook
 # Create an empty XML catalog.
-XMLCATALOG=$RPM_BUILD_ROOT/etc/xml/catalog
+XMLCATALOG=%{buildroot}/etc/xml/catalog
 /usr/bin/xmlcatalog --noout --create $XMLCATALOG
 # install common ISO entities character set
-rm -rf $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
-mkdir $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
-install iso-*.ent $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
-install catalog $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
+rm -rf %{buildroot}%{sgmlbase}/xml-iso-entities-8879.1986/
+mkdir %{buildroot}%{sgmlbase}/xml-iso-entities-8879.1986/
+install iso-*.ent %{buildroot}%{sgmlbase}/xml-iso-entities-8879.1986/
+install catalog %{buildroot}%{sgmlbase}/xml-iso-entities-8879.1986/
 /usr/bin/xmlcatalog --noout --add "delegatePublic" \
 	"-//OASIS//ENTITIES DocBook XML" \
 	"file://%{sgmlbase}/xml-iso-entities-8879.1986/catalog" $XMLCATALOG
@@ -89,7 +89,7 @@ install catalog $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
 	"file://%{sgmlbase}/xml-iso-entities-8879.1986/catalog" $XMLCATALOG
 # Also create the common DocBook catalog
 /usr/bin/xmlcatalog --noout --create \
-	$RPM_BUILD_ROOT%{sgmlbase}/docbook/xmlcatalog
+	%{buildroot}%{sgmlbase}/docbook/xmlcatalog
 # Now put the common DocBook entries
 /usr/bin/xmlcatalog --noout --add "delegatePublic" \
 	"-//OASIS//DTD DocBook XML" \
@@ -102,7 +102,7 @@ install catalog $RPM_BUILD_ROOT%{sgmlbase}/xml-iso-entities-8879.1986/
 	"file://%{sgmlbase}/docbook/xmlcatalog" $XMLCATALOG
 
 %clean
-rm -Rf $RPM_BUILD_ROOT
+rm -Rf %{buildroot}
 
 %Files
 %defattr (-,root,root)
