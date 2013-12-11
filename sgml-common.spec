@@ -30,8 +30,9 @@ Patch1: sgml-common-xmldir.patch
 Patch2: sgml-common-quotes.patch
 
 BuildRequires: libxml2
+BuildRequires: libxml2-utils
 BuildRequires: automake
-Requires: /bin/basename
+Requires: coreutils
 
 %description
 The sgml-common package contains a collection of entities and DTDs
@@ -43,7 +44,7 @@ up-to-date Open Catalog file.
 
 Summary: Common XML catalog and DTD files
 License: GPL+
-Requires(pre): %{_bindir}/xmlcatalog
+Requires(pre): libxml2-utils
 
 %description -n xml-common
 The xml-common is a subpackage of sgml-common which contains
