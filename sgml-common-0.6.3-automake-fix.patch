@@ -1,9 +1,0 @@
-Index: sgml-common-0.6.3/doc/man/Makefile.am
-===================================================================
---- sgml-common-0.6.3/doc/man/Makefile.am
-+++ sgml-common-0.6.3/doc/man/Makefile.am	2009-05-19 15:08:50.000000000 +0200
-@@ -1,2 +1,2 @@
--man8dir	  = $(mandir)/man8
--man8_DATA = *.8
-+maneightdir	 = $(mandir)/man8
-+maneight_DATA	 = *.8
