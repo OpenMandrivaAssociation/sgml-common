@@ -3,7 +3,7 @@
 Summary:	Base ISO character entities and utilities for SGML and XML
 Name:		sgml-common
 Version:	0.6.3
-Release:	22
+Release:	42
 Group:		Publishing
 License:	GPLv3
 Url:		http://www.w3.org/2003/entities/
@@ -21,6 +21,7 @@ BuildRequires:	libxml2-utils >= 2.4.8-2
 Requires:	coreutils
 Requires:	grep
 Requires:	libxml2-utils >= 2.4.8-2
+Provides:	xml-common = %{EVRD}
 
 %Description
 The ISO standardization organization has normalized a set of characters
