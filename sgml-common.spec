@@ -3,7 +3,7 @@
 Summary:	Base ISO character entities and utilities for SGML and XML
 Name:		sgml-common
 Version:	0.6.3
-Release:	48
+Release:	49
 Group:		Publishing
 License:	GPLv3
 Url:		http://www.w3.org/2003/entities/
