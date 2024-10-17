@@ -6,7 +6,7 @@ Version:	0.6.3
 Release:	51
 Group:		Publishing
 License:	GPLv3
-Url:		http://www.w3.org/2003/entities/
+Url:		https://www.w3.org/2003/entities/
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.bz2
 Source1:	http://oasis-open.org/committees/docbook/xmlcharent/0.3/xmlcharent-0.3.tar.bz2
 Source2:	xmlcharent-catalog.tar.bz2
